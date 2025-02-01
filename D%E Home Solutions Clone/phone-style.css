@@ -1,0 +1,266 @@
+@media only screen and (max-width: 600px) {
+
+    header {
+        padding: 15px;
+        height: 100px;
+    }
+
+    .nav-logo {
+        z-index: 100;
+    }
+    
+    .nav-menu {
+        display: none;
+    }
+
+    .phone-nav {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .phone-nav .nav-icon {
+        border: none;
+        font-size: 20px;
+        margin-right: 15px;
+        z-index: 101;
+    }
+
+    /* #nav-opt {
+        display: flex;
+        position: fixed;
+        opacity: 0;
+        transition: all 3s ease;
+        transform: translateY(0.1);
+    }
+
+    #nav-opt.open {
+        opacity: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.9s ease;
+        transform: translateY(1.0);
+        z-index: 99;
+    } */
+
+    #nav-opt {
+        display: flex;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.9s ease, visibility 0.9s ease;
+        transform: translateY(0);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        align-items: center;
+        justify-content: center;
+        z-index: 99;
+    }
+    
+    #nav-opt.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+
+    #nav-opt.open .nav-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 20px;
+        font-size: 21px;
+    }
+
+    .main .motto {
+        padding-top: 10px;
+        margin: 80px 16px 30px;
+        font-size: 18px;
+        font-weight: 100;
+    }
+
+    .motto h1 {
+        line-height: normal;
+    }
+
+    .sub-main {
+        padding: 20px 20px 0px;
+    }
+
+    .sub-main .heading h1 {
+        font-size: 40px;
+    }
+
+    .services-group {
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .ind-group {
+        flex-basis: 100%;
+        height: 200px;
+    }
+
+    .ind-group h1 {
+        font-size: 28px;
+    }
+
+    .ind-group .darken {
+        opacity: 20%;
+    }
+
+    .query {
+        margin-bottom: 30px;
+    }
+
+    .query h1 {
+        font-size: 25px;
+    }
+
+    .query a {
+        font-size: 22.5px;
+    }
+
+    .sub-main.works {
+        padding-top: 15px;
+    }
+
+    .sub-main.works .heading {
+        margin: 20px 15px 10px;
+        text-align: left;
+    }
+
+    .sub-main.works .heading h1 {
+        font-size: 35px;
+    }
+
+    .works-info {
+        flex-basis: 100%;
+        margin: 50px 14px;
+        text-align: center;
+    }
+
+    .works-info p {
+        font-size: 18px;
+    }
+
+    .sub-main.works .btn-cont {
+        margin: 20px auto;
+    }
+
+    .sub-main.works .btn-cont .btn {
+        border-radius: 40px;
+        width: 180px;
+    }
+
+    footer {
+        padding: 20px;
+        flex-wrap: wrap;
+    }
+
+    .foot-section.meet-me {
+        flex-basis: 100%;
+        text-align: center;
+        margin: 45px 0px;
+    }
+
+    .foot-section.meet-me h1 {
+        font-size: 26px;
+        text-align: left;
+    }
+
+    .foot-section.meet-me .text {
+        width: 100%;
+    }
+
+    .foot-section.meet-me .text p {
+        text-align: left;
+        margin-bottom: 30px;
+    }
+
+    .foot-section.links {
+        flex-basis: 100%;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .foot-section.links .quick {
+        flex-basis: 100%;
+        height: 190px;
+    }
+
+    .foot-section.links .contact {
+        flex-basis: 100%;
+        height: 190px;
+    }
+
+    .ind-group.sc {
+        height: 350px;
+    }
+
+    .sub-main.about-us {
+        padding: 12px 20px;
+    }
+
+    .sub-main.about-us h1 {
+        font-weight: 200;
+    }
+
+    .about-us-main {
+        flex-wrap: wrap;
+    }
+
+    .about-us-text {
+        flex-basis: 100%;
+        font-size: 20px;
+    }
+
+    .about-us-image {
+        flex-basis: 100%;
+        margin: 28px auto;
+    }
+
+    .contact-main {
+        padding: 10px 16px;
+    }
+
+    .contact-main h1 {
+        font-size: 35px;
+        margin: 25px 0px;
+    }
+
+    .contact-main .contact-motto {
+        width: 100%;
+        font-size: 21px;
+        margin-bottom: 60px;
+    }
+
+    .contact-main .contact-div {
+        flex-wrap: wrap;
+    }
+
+    .contact-main .contact-div form {
+        flex-basis: 100%;
+    }
+
+    .contact-main .contact-info {
+        flex-basis: 100%;
+        font-size: 20px;
+        line-height: 1.4;
+        margin-bottom: 25px;
+    }
+
+}

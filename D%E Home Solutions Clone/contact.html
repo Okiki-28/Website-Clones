@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="phone-style.css">
+        <script src="https://kit.fontawesome.com/15caac7a0d.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <div id="nav-opt">
+                <div class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="aboutus.html">About us</a></li>
+                        <li><a href="contact.html" class="nav-active">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-logo">
+                <img src="Images/Logo2.png">
+            </div>
+            <div class="phone-nav">
+                <button class="nav-icon" onclick="toggleMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="aboutus.html">About us</a></li>
+                    <li><a href="contact.html" class="nav-active">Contact</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <section class="sub-main contact-main">
+                <h1>Get in touch</h1>
+                <div class="contact-motto">
+                    <p>Use the contact form below to inquire about our services, 
+                        and we’ll respond promptly to assist you.</p>
+                </div>
+                <div class="contact-div">
+                    <form name="form" autocomplete="on">
+                        <label for="">Name<span> (required)</span></label>
+                        <div class="name-cls">
+                            <div>
+                                <label for="firstname">First Name</label>
+                                <input type="text" name="firstname" required>
+                            </div>
+                            <div>
+                                <label for="lastname">Last Name</label>
+                                <input type="text" name="lastname">
+                            </div>
+                        </div>
+                        <br>
+                        <label for="phone">Phone<span> (required)</span></label>
+                        <input type="tel" pattern="\+?[0-9\s\-()]{10,15}" name="phone" required>
+                        <label for="email">Email<span> (required)</span></label>
+                        <input type="email" name="email" required>
+                        <label for="postcode">Postcode<span> (required)</span></label>
+                        <input type="text" name="postcode" maxlength="10" required>
+                        <label for="more">Tell us what you need<span> (required)</span></label>
+                        <textarea type="text" name="more-info" autocomplete="off" required></textarea>
+                        <button class="btn contact-btn" type="submit" title="Click to submit">Submit</button>
+                    </form>
+                    <div class="contact-info">
+                        <h1>Contact</h1>
+                        <p>Email:</p>
+                        <p><a>testemail123@gmail.com</a></p>
+                        <br>
+                        <p>Phone</p>
+                        <p><a>01234567</a></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="foot-section meet-me">
+            <h1>
+                <div class="underline">
+                    <img src="Images/Underline3.png" />
+                    <p>Test Brand Name</p>
+                </div>
+            </h1>
+            <div  class="text">
+                <p>Test Brand Name offers reliable 
+                    handyman services, from maintenance 
+                    to painting, to make your home functional 
+                    and aesthetically pleasing.</p><br>
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            </div>
+            <div class="foot-section links">
+                <div class="quick">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="service.html">Services</a>
+                    <a href="aboutus.html">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="">Privacy Policy</a>
+                </div>
+                <div class="contact">
+                    <h3>Contact</h3>
+                    <button class="btn" onclick="window.location.href='contact.html';">Contact us</button>
+                    <p><i class="fa-solid fa-phone"></i> <a>01234567</a></p>
+                    <p><i class="fa-solid fa-location-dot"></i> 123 Joana street, Coana, AL1&nbsp;12L</p>
+                    <p><i class="fa-solid fa-clock"></i> 9:00 am to 5:00 pm, Monday to Saturday</p>
+                </div>
+            </div>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>
