@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: url(Images/Home\ BG.png);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+header {
+    position: sticky;
+    height: 65px;
+    width: 100%; 
+}
+
+.nav-bar {
+    box-shadow: 0px 0px 10px ;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding: 10px 30px;
+    align-items: center;
+}
+
+.nav-bar .nav-logo p {
+    font-size: 30px;
+    font-family: 'Caveat', cursive;
+    color: aliceblue;
+    font-weight: 500;
+}
+
+.nav-bar .nav-content {
+    flex-basis: 45%;
+    align-items: center;
+}
+
+.nav-bar .nav-content ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nav-bar .nav-content ul li {
+    position: relative;
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nav-bar .nav-content ul li::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background-color: #98ff98;
+    transition: 0.3s ease;
+}
+
+.nav-bar .nav-content ul li:hover::after {
+    width: 100%;
+}
+
+.btn {
+    padding: 10px;
+    border: 2px solid white;
+    color: white;
+    background: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: 0.3s;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.btn:hover {
+    background: #98ff98;
+    border-color: #98ff98;
+    color: black;
+}
+
+.home {
+    margin-top: 0px;
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    padding: 15px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.home .home-name {
+    flex-basis: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+.home .home-name h1 {
+    font-size: 65px;
+    color: #fff;
+    box-shadow: 0px 0px 20px black;
+    line-height: 1.5;
+    margin: 5px;
+    padding-left: 20px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.home .home-name h1 span {
+    color: #98ff98;
+    font-weight: 1000;
+}
+
+.home .home-name ul {
+    box-shadow: 0px 0px 20px black;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.home .home-name ul li {
+    font-size: 25px;
+    color: #fff;
+    line-height: 1.2;
+    margin-left: 30px
+}
+
+.home .home-img {
+    flex-basis: 30%;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    border-radius: 300px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 20px black;
+}
+
+.home .home-img img {
+    width: 100%;
+    border-radius: 30px;
+    margin: 180px 0px 0px;
+}
+
+.services {
+    width: 100%;
+    height: 1000px;
+    background: #222;
+    padding: 50px;
+}
+
+.services h1 {
+    font-size: 50px;
+    color: #98ff98;
+}
+
+.services-table {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.services-group {
+    flex-basis: 28%;
+    aspect-ratio: 1/1.2;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    background-color: white;
+}
