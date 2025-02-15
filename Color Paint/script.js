@@ -4,6 +4,7 @@ const xCircle = document.getElementById("xCircle");
 const yCircle = document.getElementById("yCircle");
 const curr_color = document.getElementById("curr_color");
 const circle = document.getElementsByClassName("circle");
+const color_order = ["red", "limegreen", "blue", "yellow", "purple"]
 
 const no_row = layout.getAttribute("data-row_no");
 const no_col = layout.getAttribute("data-col_no");
@@ -111,6 +112,15 @@ document.addEventListener('keydown', function(event) {
         case "Enter":
             index = (Math.floor(y/100)*no_row) + Math.floor(x/100)
             circle[index+6].style.backgroundColor = newColor;
+            break
+        case "1" :
+        case "2" :
+        case "3" :
+        case "4" :
+        case "5" :
+            index = Number(event.key)
+            curr_color.style.backgroundColor = color_order[index-1];
+            newColor = color_order[index-1];
             break
         default:
             break

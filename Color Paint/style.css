@@ -32,6 +32,9 @@ main {
     background-color: limegreen;
     border: 0px;
     margin: 0px;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 0px 0px 1px black;
 }
 
 .circle.red {
