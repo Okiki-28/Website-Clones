@@ -6,33 +6,160 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Olumeyan Okikiola</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/15caac7a0d.js" crossorigin="anonymous"></script>
+
+    <link rel="icon" sizes="16x16 32x32 48x48" type="image/png" href="Images/icon2.png" />
 </head>
 <body>
-    <header>
-        
-        <img src="Images/Logo.png" alt="My Logo">
+    <header id="global-header">
+        <!-- <img src="Images/Logo5.png" alt="Okikiola"> -->
+         <h1>Okikiola</h1>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Me</a></li>
-                <li><a href="#">My Works</a></li>
-                <li><button>Contact Me</button></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Porfolio</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section class="home">
-            <div class="home-img">
-                <div class="home-box">
-                    <div class="greeting">
+            <div class="home-box">
+                <div id="home-cont">
+                    <div id="greeting">
                         <h1>Hello, I'm <span>Olumeyan Okikiola</span></h1>
                         <p>I'm a <span>Web Developer</span></p>
+                        <a href="#contact" class="btn">Contact Me</a>
+                        <div>
+                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#"><i class="fa-brands fa-github"></i></a>
+                        </div>
                     </div>
-                    <div class="image">
-                        <img src="Images/me.jpg" alt="">
+                    <div id="home-img" class="image">
+                        <img src="Images/me2.jpg" alt="">
                     </div>
                 </div>
             </div>
+            <button class="page-nav" onclick="nextPage('about')"><i class="fa-solid fa-angles-down"></i></button>
+        </section>
+        <section class="about">
+            <h1 id="about">About Me</h1>
+            <div id="about-cards" class="about-cards">
+                <div id="roles" class="card">
+                    <div class="card-name">
+                        <h2>Vision</h2>
+                        <p><i class="fa-solid fa-compass"></i></p>
+                    </div>
+                    <div class="card-content">
+                        <p>Blending data-driven insights with intuitive web design to create seamless, 
+                            engaging, and impactful digital experiences.</p>
+                    </div>
+                </div>
+
+                <div id="education" class="card">
+                    <div class="card-content">
+                        <p>A-level Student in Mathematics, Further Mathematics, Economics
+                            and Computer Science, based in United Kingdom, Essex.
+                        </p>
+                    </div>
+                    <div class="card-name">
+                        <h2>Education</h2>
+                        <p><i class="fa-solid fa-graduation-cap"></i></p>
+                    </div>
+                </div>
+                
+                <div id="code" class="card">
+                    <div class="card-name">
+                        <h2>Skills</h2>
+                        <p><i class="fa-solid fa-code"></i></p>
+                    </div>
+                    <div class="card-content">
+                        <ul>
+                            <li>Web Development</li>
+                            <li>Responsive Design</li>
+                            <li>JS Framework (React)</li>
+                            <li>Version Control</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="#" id="cv-btn" class="btn" download="Okikiola">Download CV</a>
+            <button class="page-nav" onclick="nextPage('portfolio')"><i class="fa-solid fa-angles-down"></i></button>
+        </section>
+        <section class="portfolio">
+            <h1 id="portfolio">Projects & Portfolio</h1>
+            <div class="project-group">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Images/Home BG.png" alt="Project image">
+                    </div>
+                    <h2>Project Name</h2>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Images/Home BG.png" alt="Project image">
+                    </div>
+                    <h2>Project Name</h2>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Images/Home BG.png" alt="Project image">
+                    </div>
+                    <h2>Project Name</h2>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Images/Home BG.png" alt="Project image">
+                    </div>
+                    <h2>Project Name</h2>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Images/Home BG.png" alt="Project image">
+                    </div>
+                    <h2>Project Name</h2>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Images/Home BG.png" alt="Project image">
+                    </div>
+                    <h2>Project Name</h2>
+                </div>
+            </div>
+            <button class="page-nav" onclick="nextPage('services')"><i class="fa-solid fa-angles-down"></i></button>
+        </section>
+        <section class="services">
+            <h1 id="services">My Services</h1>
+            <div class="service-group">
+                <div id="web-service" class="service-card">
+                    <h2>Web Developer</h2>
+                </div>
+                <div id="gra-service" class="service-card">
+                    <h2>Graphics Designer</h2>
+                </div>
+                <div id="anys-service" class="service-card">
+                    <h2>Data Analayst</h2>
+                </div>
+            </div>
+            <button class="page-nav" onclick="nextPage('contact')"><i class="fa-solid fa-angles-down"></i></button>
+        </section>
+        <section class="contact">
+            <h1 id="contact">Get in Touch</h1>
+            <div class="contact-text">
+                <a href="mailto:olumeyanokiki283@gmail.com">
+                    <i class="fa-solid fa-envelope"></i> Send an Email: olumeyanokiki283@gmail.com</a>
+                    <br>
+                <a href="tel:07706987060">
+                    <i class="fa-solid fa-phone"></i> Call me: +447706987060</a>
+                    <br>
+                <a href="#">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+            <button class="page-nav" onclick="nextPage('top')"><i class="fa-solid fa-angles-up"></i></button>
         </section>
     </main>
     <footer>
