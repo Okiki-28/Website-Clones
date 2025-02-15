@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: monospace;
+}
+
+main {
+   display: flex;
+   height: 100vh;
+   align-items: center;
+   justify-content: space-around; 
+   /* background: yellow; */
+}
+
+.layout {
+    /* background: black; */
+    width: 80vh;
+    height: 80vh;
+    padding: 30px;
+    position: relative;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+}
+
+.circle {
+    width: 75px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: limegreen;
+    border: 0px;
+    margin: 0px;
+}
+
+.circle.red {
+    background-color: red;
+}
+
+.circle.blue {
+    background-color: blue;
+}
+
+.circle.purple {
+    background-color: purple;
+}
+
+.circle.yellow {
+    background-color: yellow;
+}
+
+.movingCircle {
+    top: 30px;
+    left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    position: absolute;
+    transition-timing-function: linear;
+    transform: translate3d(0, 0, 0);
+}
+
+.movingCircle .innerCircle {
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    animation: rest 1.4s ease 0s infinite normal both;
+}
+
+#playerCircle {
+    transition: 0.3s;
+}
+
+@keyframes rest {
+    0% {scale: 1.0;}
+    50% {scale: 0.8;}
+    100% {scale: 1.0;}
+}
+
+
+.colors-grid {
+    display: flex;
+    width: 40vw;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.colors-grid h1 {
+    font-size: 40px;
+}
+
+.colors-grid button {
+    cursor: pointer;
+}
+
+.colors-grid button:not(:last-child):hover {
+    box-shadow: 0px 0px 5px 1px black;
+}
+
+.current-box {
+    flex-basis: 80%;
+    padding: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.current-box h2 {
+    font-size: 30px;
+}
