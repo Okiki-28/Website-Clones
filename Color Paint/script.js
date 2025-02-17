@@ -110,6 +110,7 @@ document.addEventListener('keydown', function(event) {
             }
             break;
         case "Enter":
+        case " ":
             index = (Math.floor(y/100)*no_row) + Math.floor(x/100)
             circle[index+6].style.backgroundColor = newColor;
             break

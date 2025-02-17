@@ -113,3 +113,7 @@ main {
 .current-box h2 {
     font-size: 30px;
 }
+
+.current-box button {
+    cursor: default;
+}
