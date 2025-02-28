@@ -1,4 +1,5 @@
 const container = document.querySelector(".container"),
+cover = container.querySelector(".cover-wrapper"),
 mainVideo = container.querySelector("video"),
 videoTimeline = container.querySelector(".video-timeline"),
 progressBar = container.querySelector(".progress-bar"),
@@ -12,29 +13,34 @@ playPauseBtn = container.querySelector(".play-pause i"),
 speedBtn = container.querySelector(".playback-speed span"),
 speedOptions = container.querySelector(".speed-options"),
 picInPicBtn = container.querySelector(".pic-in-pic span"),
-videoControls = container.querySelector(".video-controls"),
 fullscreenBTN = container.querySelector(".fullscreen i");
 
 let timer;
+let skip;
 let initVolume = 0.5;
 let volumeClass = volumeBtn.classList[1];
 mainVideo.volume = 0.5;
 
 const hideControls = ()=>{
-    if (mainVideo.paused) return
+    cover.addEventListener("mouseenter", ()=>{
+        skip = true;
+    })
+    cover.addEventListener("mouseleave", ()=>{
+        skip = false;
+    })
+
+    if (mainVideo.paused) {
+        return
+    } else if (skip == true) {
+        return
+    }
     timer = setTimeout(()=>{
         container.classList.remove("show-controls");
-    }, 3000);
+    }, 2000);
 }
 hideControls();
 
-// videoTimeline.addEventListener("mouseout", ()=>{
-//     container.classList.add("show-controls");
-//     clearTimeout(timer);
-//     hideControls();
-// });
-
-videoControls.addEventListener("mouseout", ()=>{
+cover.addEventListener("mouseenter", ()=>{
     container.classList.add("show-controls");
     clearTimeout(timer);
     hideControls();
@@ -70,8 +76,9 @@ mainVideo.addEventListener("timeupdate", e=>{
     currentVidTime.innerText = formatTime(currentTime);
 });
 
-mainVideo.addEventListener("loadeddata", e=>{
-    videoDuration.innerText = formatTime(e.target.duration);
+
+mainVideo.addEventListener("loadedmetadata", e=>{
+    videoDuration.innerText = formatTime(e.target.duration);    
 });
 
 videoTimeline.addEventListener("click", e=>{
@@ -163,7 +170,7 @@ picInPicBtn.addEventListener("click", ()=>{
     mainVideo.requestPictureInPicture();
 });
 
-fullscreenBTN.addEventListener("click", ()=>{
+const fullscreenFnc = () => {
     container.classList.toggle("fullscreen");
     if (document.fullscreenElement) {
         fullscreenBTN.classList.replace("fa-compress", "fa-expand");
@@ -171,6 +178,10 @@ fullscreenBTN.addEventListener("click", ()=>{
     }
     fullscreenBTN.classList.replace("fa-expand", "fa-compress");
     container.requestFullscreen();
+}
+
+fullscreenBTN.addEventListener("click", ()=>{
+    fullscreenFnc()
 });
 
 skipBackward.addEventListener("click", ()=>{
@@ -189,7 +200,13 @@ document.addEventListener("keydown", e=>{
     switch (e.key) {
         case " ":
             mainVideo.paused ? mainVideo.play() : mainVideo.pause();
-    }
+        case "f":
+            fullscreenFnc()
+        }
+    });
+    
+mainVideo.addEventListener("click", ()=>{
+    mainVideo.paused ? mainVideo.play() : mainVideo.pause();
 });
 
 mainVideo.addEventListener("play", ()=>{
@@ -200,5 +217,5 @@ mainVideo.addEventListener("play", ()=>{
 mainVideo.addEventListener("pause", ()=>{
     playPauseBtn.classList.replace("fa-pause", "fa-play");
     container.classList.add("show-controls");
+    clearTimeout(timer)
 });
-
