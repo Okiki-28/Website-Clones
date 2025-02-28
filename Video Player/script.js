@@ -12,6 +12,7 @@ playPauseBtn = container.querySelector(".play-pause i"),
 speedBtn = container.querySelector(".playback-speed span"),
 speedOptions = container.querySelector(".speed-options"),
 picInPicBtn = container.querySelector(".pic-in-pic span"),
+videoControls = container.querySelector(".video-controls"),
 fullscreenBTN = container.querySelector(".fullscreen i");
 
 let timer;
@@ -27,7 +28,13 @@ const hideControls = ()=>{
 }
 hideControls();
 
-videoTimeline.addEventListener("mouseout", ()=>{
+// videoTimeline.addEventListener("mouseout", ()=>{
+//     container.classList.add("show-controls");
+//     clearTimeout(timer);
+//     hideControls();
+// });
+
+videoControls.addEventListener("mouseout", ()=>{
     container.classList.add("show-controls");
     clearTimeout(timer);
     hideControls();
