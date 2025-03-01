@@ -170,13 +170,21 @@ picInPicBtn.addEventListener("click", ()=>{
     mainVideo.requestPictureInPicture();
 });
 
+container.addEventListener("fullscreenchange", ()=>{
+    if (document.fullscreenElement) {
+        container.classList.add("fullscreen");
+        fullscreenBTN.classList.replace("fa-expand", "fa-compress");
+    } else {
+        container.classList.remove("fullscreen");
+        fullscreenBTN.classList.replace("fa-compress", "fa-expand");
+    }
+})
+
 const fullscreenFnc = () => {
     container.classList.toggle("fullscreen");
     if (document.fullscreenElement) {
-        fullscreenBTN.classList.replace("fa-compress", "fa-expand");
         return document.exitFullscreen();
     }
-    fullscreenBTN.classList.replace("fa-expand", "fa-compress");
     container.requestFullscreen();
 }
 
@@ -206,9 +214,8 @@ document.addEventListener("keydown", e=>{
             break
         default:
             break
-        }
-
-    });
+    }
+});
     
 mainVideo.addEventListener("click", ()=>{
     mainVideo.paused ? mainVideo.play() : mainVideo.pause();
