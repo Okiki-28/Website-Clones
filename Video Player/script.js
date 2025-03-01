@@ -200,9 +200,14 @@ document.addEventListener("keydown", e=>{
     switch (e.key) {
         case " ":
             mainVideo.paused ? mainVideo.play() : mainVideo.pause();
+            break
         case "f":
             fullscreenFnc()
+            break
+        default:
+            break
         }
+
     });
     
 mainVideo.addEventListener("click", ()=>{
