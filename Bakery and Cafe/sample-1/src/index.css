@@ -1,0 +1,569 @@
+/* :root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+} */
+
+:root {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Georgia", "Times New Roman", serif;
+
+  --text: #6b5c4f;          /* warm muted brown-grey, body text */
+  --text-h: #2e1f14;        /* deep espresso brown, headings */
+  --bg: #fdfaf5;            /* warm cream/off-white background */
+  --border: #e6dcc8;        /* soft wheat-toned border */
+  --code-bg: #f4ede1;       /* light latte/cream background */
+
+  --accent: #8a5a2e;        /* rustic coffee brown, primary accent */
+  --accent-bg: rgba(138, 90, 46, 0.1);
+  --accent-border: rgba(138, 90, 46, 0.5);
+
+  --gold: #c9932e;          /* wheat/amber gold, secondary accent */
+  --gold-bg: rgba(201, 147, 46, 0.1);
+
+  --social-bg: rgba(244, 237, 225, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.45;
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+
+.announcement {
+  background-color: var(--accent-bg);
+  color: var(--accent);
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.announcement p {
+  font-weight: 500;
+}
+
+nav {
+  font-family: var(--font-sans);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  align-items: center;
+  box-shadow: var(--shadow);
+  border-bottom: 2px solid var(--border);
+}
+
+nav .nav-logo h1 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--text-h);
+  margin: 0;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+nav .nav-logo {
+  display: flex;
+  align-items: center;
+  height: 75px;
+}
+
+nav .nav-logo img {
+  max-height: 100%;
+  width: auto;
+  display: block;
+}
+
+/* About Hero Image scroll */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-item {
+  position: relative;
+  flex: 0 0 100%;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 1.5rem 3.5rem;
+  background: linear-gradient(
+    to top,
+    rgba(46, 31, 20, 0.75) 0%,
+    rgba(46, 31, 20, 0.35) 60%,
+    transparent 100%
+  );
+}
+
+.carousel-caption p {
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: Transparent;
+  color: #fff;
+  border: none;
+  font-size: 4rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.carousel-btn:hover {
+  color: var(--accent);
+}
+
+.carousel-btn.prev {
+  left: 16px;
+}
+
+.carousel-btn.next {
+  right: 16px;
+}
+
+.cta {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.cta a {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--border);
+  border: 2px solid var(--border);
+  color: var(--text-h);
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; 
+}
+
+.cta a:hover {
+  background-color: var(--accent-border);
+  border-color: #fff;
+  transform: scale(1.05);
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 0;
+}
+
+.dot.active {
+  background: var(--accent);
+}
+
+.hero-text {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero-text h1 {
+  color: var(--text-h);
+  margin: 1.5rem 0;
+  font-size: 2rem;
+}
+
+.hero-text p {
+  color: var(--text);
+  line-height: 2;
+  font-size: 1.15rem;
+}
+
+.divider {
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  margin: 1rem auto 1.5rem;
+  border-radius: 2px;
+}
+
+/* end */
+
+/* Reviews section */
+.reviews {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.reviews h2 {
+  color: var(--text-h);
+}
+
+.review-item {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin: 3rem 0;
+  text-align: left;
+}
+
+.review-item.reverse {
+  flex-direction: row-reverse;
+}
+
+.review-image {
+  flex: 0 0 45%;
+}
+
+.review-image img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.review-text {
+  flex: 1;
+}
+
+.review-text p {
+  font-size: 1.1rem;
+  color: var(--text);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.review-name {
+  font-weight: bold;
+  color: var(--text-h);
+}
+
+/* Stack on smaller screens */
+@media (max-width: 768px) {
+  .review-item,
+  .review-item.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .review-image {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+
+/* end */
+/* Visit info section */
+.visit-info {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 2.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: var(--code-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  gap: 2rem;
+}
+
+.visit-card {
+  flex: 1;
+  text-align: center;
+}
+
+.visit-card h3 {
+  color: var(--text-h);
+  font-size: 1.1rem;
+  margin-bottom: 0.9rem;
+  font-family: var(--font-serif);
+}
+
+.visit-card p {
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.visit-card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.visit-card ul li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: var(--text);
+  padding: 0 0.5rem;
+}
+
+.visit-card ul li span:first-child {
+  font-weight: bold;
+  color: var(--text-h);
+}
+
+.visit-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.visit-link:hover {
+  color: var(--gold);
+}
+
+.visit-divider {
+  width: 1px;
+  background: var(--border);
+  align-self: stretch;
+}
+
+/* Stack on smaller screens */
+@media (max-width: 768px) {
+  .visit-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .visit-divider {
+    width: 60%;
+    height: 1px;
+  }
+
+  .visit-card ul li {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}
+/* end */
+/* footer */
+.footer {
+  background: var(--text-h);
+  color: var(--bg);
+  padding: 3rem 2rem 1.5rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-brand h2 {
+  font-family: var(--font-serif);
+  color: var(--bg);
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+  color: var(--border);
+  font-size: 0.95rem;
+}
+
+.footer-links h3,
+.footer-hours h3,
+.footer-social h3 {
+  color: var(--gold);
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links a {
+  color: var(--border);
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+.footer-hours p {
+  color: var(--border);
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  color: var(--border);
+  font-weight: bold;
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.7rem;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+.social-icons a:hover {
+  background: var(--gold);
+  color: var(--text-h);
+  border-color: var(--gold);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  color: var(--border);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+/* end */
