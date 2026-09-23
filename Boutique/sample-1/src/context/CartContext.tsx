@@ -1,6 +1,6 @@
 // context/CartContext.tsx
-import { createContext, useContext, useState } from 'react'
-import type {ReactNode} from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
+import type { ReactNode } from 'react'
 
 export interface CartItem {
   productId: string
@@ -23,11 +23,70 @@ interface CartContextValue {
 
 const CartContext = createContext<CartContextValue | undefined>(undefined)
 
+const STORAGE_KEY = 'boutique_cart'
+const EXPIRY_MS = 8 * 60 * 60 * 1000 // 8 hours
+
+interface StoredCart {
+  items: CartItem[]
+  createdAt: number
+}
+
+const loadCart = (): StoredCart | null => {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY)
+    if (!raw) return null
+
+    const parsed: StoredCart = JSON.parse(raw)
+    const isExpired = Date.now() - parsed.createdAt > EXPIRY_MS
+
+    if (isExpired) {
+      localStorage.removeItem(STORAGE_KEY)
+      return null
+    }
+
+    return parsed
+  } catch {
+    // corrupted or unreadable — treat as no saved cart
+    localStorage.removeItem(STORAGE_KEY)
+    return null
+  }
+}
+
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [items, setItems] = useState<CartItem[]>([])
+  const [items, setItems] = useState<CartItem[]>(() => loadCart()?.items ?? [])
+  const [createdAt, setCreatedAt] = useState<number | null>(() => loadCart()?.createdAt ?? null)
+
+  // persist on every change
+  useEffect(() => {
+    if (items.length === 0) {
+      localStorage.removeItem(STORAGE_KEY)
+      return
+    }
+    const stamp = createdAt ?? Date.now()
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ items, createdAt: stamp }))
+  }, [items, createdAt])
+
+  // auto-clear if the tab stays open past expiry
+  useEffect(() => {
+    if (!createdAt) return
+    const remaining = EXPIRY_MS - (Date.now() - createdAt)
+    if (remaining <= 0) {
+      setItems([])
+      setCreatedAt(null)
+      return
+    }
+    const timer = setTimeout(() => {
+      setItems([])
+      setCreatedAt(null)
+    }, remaining)
+    return () => clearTimeout(timer)
+  }, [createdAt])
 
   const addToCart: CartContextValue['addToCart'] = (item, quantity) => {
     setItems((prev) => {
+      const isFirstItem = prev.length === 0
+      if (isFirstItem) setCreatedAt(Date.now())
+
       const existing = prev.find((i) => i.productId === item.productId && i.size === item.size)
       if (existing) {
         return prev.map((i) =>
@@ -51,7 +110,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     )
   }
 
-  const clearCart = () => setItems([])
+  const clearCart = () => {
+    setItems([])
+    setCreatedAt(null)
+  }
 
   const itemCount = items.reduce((sum, i) => sum + i.quantity, 0)
   const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0)

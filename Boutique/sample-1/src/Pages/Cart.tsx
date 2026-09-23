@@ -41,6 +41,7 @@ export const Cart = () => {
                 </button>
                 <span>{item.quantity}</span>
                 <button
+                  className="cart__item-stepper-btn"
                   onClick={() => updateQuantity(item.productId, item.size, item.quantity + 1)}
                   aria-label="Increase quantity"
                 >

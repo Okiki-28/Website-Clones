@@ -71,18 +71,32 @@ export const About = () => {
 
       {/* ---- Behind the scenes ---- */}
       <section className="about-gallery">
-        <img
-          src="https://images.unsplash.com/photo-1567958451986-2de427a4a0be?w=800&auto=format&fit=crop&q=80"
-          alt="Inside the store"
-        />
-        <img
-          src="https://images.unsplash.com/photo-1555529771-835f59fc5efe?w=800&auto=format&fit=crop&q=80"
-          alt="Clothing on display"
-        />
-        <img
-          src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&auto=format&fit=crop&q=80"
-          alt="Boutique interior"
-        />
+        <div className="about-gallery__header">
+          <h2>Behind the Counter</h2>
+        </div>
+        <div className="about-gallery__grid">
+          <div className="about-gallery__item">
+            <img
+              src="https://images.unsplash.com/photo-1567958451986-2de427a4a0be?w=800&auto=format&fit=crop&q=80"
+              alt="Inside the store"
+            />
+            <span className="about-gallery__caption">In Store</span>
+          </div>
+          <div className="about-gallery__item">
+            <img
+              src="https://images.unsplash.com/photo-1555529771-835f59fc5efe?w=800&auto=format&fit=crop&q=80"
+              alt="Clothing on display"
+            />
+            <span className="about-gallery__caption">The Rail</span>
+          </div>
+          <div className="about-gallery__item">
+            <img
+              src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&auto=format&fit=crop&q=80"
+              alt="Boutique interior"
+            />
+            <span className="about-gallery__caption">The Space</span>
+          </div>
+        </div>
       </section>
 
       {/* ---- Closing CTA ---- */}
